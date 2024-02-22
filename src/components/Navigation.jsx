@@ -1,8 +1,10 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Navigation = () => {
   const navigate = useNavigate();
+  const { userId } = useParams();
+  console.log(userId);
   const isLoginToken = localStorage.getItem("token");
 
   return (
@@ -47,10 +49,10 @@ const Navigation = () => {
         {/* 로그인이 반드시 필요한 메뉴 */}
         <p>❗️ 로그인이 반드시 필요한 메뉴</p>
         <li>
-          <Link>1번 유저의 정보</Link>
+          <Link to="/user/1">1번 유저의 정보</Link>
         </li>
         <li>
-          <Link>2번 유저의 정보</Link>
+          <Link to="/user/2">2번 유저의 정보</Link>
         </li>
       </ul>
     </nav>
